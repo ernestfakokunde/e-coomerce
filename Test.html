@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto 0;
+      padding: 20px;
+      background: rgb(218, 165, 67);
+      align-items: center;
+      border-radius: 15px;
+    }
+    .container h2{
+      color: rgb(141, 54, 4);
+      font-family: cursive;
+      font-weight: 28px;
+      font-size: 28px;
+      text-align: center;
+    }
+    .game-container{
+      text-align: center;
+      padding: 2px;
+    }
+    .game-container p{
+      font-size: 20px;
+      color: rgb(82, 26, 6);
+      font-weight: 600;
+      font-family: monospace;
+    }
+    .game-container input{
+      width: 150px;
+      padding: 10px;
+      border-radius: 10px;
+      background: rgb(138, 18, 38);
+      color: white;
+      border: 1px solid rgb(82, 26, 6);
+    }
+      .game-container input::placeholder{
+        color: white;
+        font-weight: 600;
+      }
+      #guess-btn{
+        padding: 10px 20px;
+        border-radius: 10px;
+        background: rgb(82, 26, 6);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        margin-left: 10px;
+      }
+      #restart{
+        padding: 10px 10px;
+        border-radius: 10px;
+        border: none;
+        background: rgb(82, 26, 6);
+        color: white;
+        font-weight: 600;
+      }
+
+      
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h2> Guess my number</h2>
+
+    <div class="game-container">
+      <p> Guess a number between 1 to 100 !!!</p>
+
+      <input type="number" id="guess-input" placeholder="Enter your guess" />
+
+      <button id="guess-btn"> Guess</button>
+      <p id="message"></p>
+
+      <button id="restart" style="display: none;">play again</button>
+
+      <div class="history-container">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // create variables for the element in the html
+
+    const guessInput = document.getElementById('guess-input');
+    const guessBtn = document.getElementById('guess-btn');
+
+    const message = document.getElementById('message');
+    const restartBtn = document.getElementById('restart');
+
+    const historyContainer = document.getElementsByClassName('history-container');
+
+
+
+    let randomNumber = Math.floor(Math.random()*100)+ 1;
+    // other variables were going to need 
+
+    let attemptsLeft = 5;
+    let guessHistory = [];
+    let currentRound = 1;
+    let roundhistory = [];
+
+    guessBtn.addEventListener('click', handleGuess);
+
+    function handleGuess(){
+      let userguess = Number(guessInput.value);
+
+      if( userguess < 1 || userguess > 100){
+        message.innerText = 'please enter a number between 1 and 100';
+      return;
+    }
+    guessHistory.push(userguess);
+
+    if (userguess === randomNumber){
+      message.innerText = 'congrats you guessed the correct number'
+       endRound(true);
+    }
+    else if( userguess < randomNumber){
+      attemptsLeft--;
+      message.innerText =  `Too low !!! Try again attempts left : ${attemptsLeft}`
+      
+    }
+    else{
+       attemptsLeft--;
+      message.innerText =  `Too high !!! Try again attempts left : ${attemptsLeft}`
+     
+    }
+
+    if(attemptsLeft === 0){
+      message.innerText = `oops out of attempts !!! the number was ${randomNumber}`;
+
+      endRound(false);
+      }
+      guessInput.value ='';
+    }
+    function endRound(){
+      guessBtn.disabled = true;
+      restartBtn.style.display = 'block';
+    }
+
+    restartBtn.addEventListener('click' , handleGuess)
+      
+ 
+  </script>
+</body>
+</html>

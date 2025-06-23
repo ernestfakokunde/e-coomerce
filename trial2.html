@@ -1,0 +1,226 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Quiz app</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background: #001e4d;
+
+    }
+    .app{
+      background: white;
+      width: 90%;
+      max-width:600px;
+      margin: 100px auto 0;
+        padding: 20px;
+        border-radius: 10px;
+
+    }
+    .app h1{
+      font-size: 25px;
+      color:#001e4d ;
+      border-bottom: 1px solid black;
+      padding-bottom: 20px;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 24px;
+      font-weight: 600;
+      color: #001e4d;
+    }
+    .btn{
+      background: white;
+      color: #222;
+      font-weight: 500;
+      width: 100%;
+      border: 1px solid #222;
+      margin: 10px 0;
+      padding: 10px;
+      text-align: left;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn:hover{
+      background-color: #222;
+      color: white;
+    }
+    #next-btn{
+      background: #001e4d;
+      color: #fff;
+       font-weight: 500px;
+       border: 0;
+       padding: 10px;
+       margin: 20px auto 0;
+       border-radius: 4px;
+       cursor: pointer;
+       display: none;
+    }
+    .correct{
+      background: #9aeabc;
+    }
+    .wrong{
+      background: #ff9393;
+    }
+  </style>
+ </head>
+ <body>
+<div class="app">
+
+<h1>My quiz</h1>
+<div class="quiz">
+  <h2 id="question">Question Goes here</h2>
+  <div id="answer-buttons">
+    <button class="btn"> Answer 1</button>
+    <button class="btn"> Answer 2</button>
+    <button class="btn"> Answer 3</button>
+    <button class="btn"> Answer 4</button>
+  </div>
+
+  <button id="next-btn"> Next</button>
+</div>
+
+</div>
+
+<script>
+
+const questions = [
+  {
+    question:' what is the name of the developer of skilboost',
+    answers: [
+      {text: 'shark', correct: 'false'},
+      {text: 'Ayodele', correct: 'True'},
+      {text: 'Dodod', correct: 'false'},
+      {text: 'Anna of the North', correct: 'false'},
+    ]
+  },
+  {
+     question:' what is the name of the developer of skilboost',
+    answers: [
+      {text: 'shark', correct: 'false'},
+      {text: 'shark', correct: 'True'},
+      {text: 'shark', correct: 'false'},
+      {text: 'shark', correct: 'false'},
+    ]
+  },
+  {
+     question:' what is the name of the developer of skilboost',
+    answers: [
+      {text: 'shark', correct: 'false'},
+      {text: 'shark', correct: 'True'},
+      {text: 'shark', correct: 'false'},
+      {text: 'shark', correct: 'false'},
+    ]
+  },
+  {
+     question:' what is the name of the developer of skilboost',
+    answers: [
+      {text: 'shark', correct: 'false'},
+      {text: 'shark', correct: 'True'},
+      {text: 'shark', correct: 'false'},
+      {text: 'shark', correct: 'false'},
+    ]
+  }
+];
+
+const questionElement = document.getElementById('question');
+const answerButtons = document.getElementById('answer-buttons');
+const nextbtn = document.getElementById('next-btn');
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz(){
+  currentQuestionIndex = 0;
+  score = 0;
+  nextbtn.innerHTML = 'next';
+  showQuestion();
+}
+
+   function showQuestion(){
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+
+    questionElement.innerHTML = questionNo + '.' + currentQuestion.question;
+
+    // now also we want to display the repsective answers for each question
+    // we iterrate over the currentQuestion.answer to display the answers
+    // you can use the for loop or the foreach loop
+     answerButtons.innerHTML = '';
+    for( i=0; i < currentQuestion.answers.length; i++){
+
+      const answer = currentQuestion.answers[i];
+      const button = document.createElement('button');
+      button.innerHTML = answer.text;
+
+     
+      button.classList.add('btn');
+
+      answerButtons.appendChild(button);
+      
+      // for better understanding if (answer.correct) check below
+        button.dataset.correct = answer.correct;
+      button.addEventListener('click', selectAnswer); 
+      // pass function, don't call it
+      }
+
+  };
+  function selectAnswer(e){
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === 'True';
+
+    if(isCorrect){
+      selectedBtn.classList.add('correct');
+      score++;
+    } else {
+      selectedBtn.classList.add('wrong');
+    }
+    Array.from(answerButtons.children).forEach(button => {
+      if( button.dataset.correct === 'True'){
+        button.classList.add('correct');
+      }
+      button.disabled = true;
+    });
+
+    nextbtn.style.display = 'block';
+  }
+
+  function showScore(){
+    questionElement.innerHTML = `your score is ${score} out of ${questions.length} `
+    answerButtons.innerHTML = '';
+    nextbtn.innerHTML = 'play again'
+    nextbtn.style.display = 'block';
+  }
+  // function for the handle next button
+  function handleNextbtn(){
+    if(currentQuestionIndex < questions.length){
+      
+      currentQuestionIndex++;
+      showQuestion();
+    }else{
+      showScore();
+    }
+  }
+
+  nextbtn.addEventListener('click',()=>{
+    if(currentQuestionIndex < questions.length){
+      handleNextbtn();
+    } else{
+      showScore();
+    }
+  } )
+  
+  startQuiz();
+
+</script>
+ </body>
+ </html>

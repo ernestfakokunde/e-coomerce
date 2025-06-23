@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="landpage.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: rgb(217, 225, 225);
+    }
+    header{
+       padding: 15px 24px;
+       align-items: center;
+       justify-content: space-between;
+       display: flex;
+
+    }
+    .logo{
+      color: blue;
+      font-size: 24px;
+      font-weight: 600;
+      font-family: cursive;
+      cursor: pointer;
+    }
+    ul{
+      list-style: none;
+      gap: 20px;
+      display: flex;
+      flex-direction: row;
+    }
+    ul li{
+      padding: 5px;
+    }
+    ul li a{
+      text-decoration: none;
+      color: black;
+      font: weight 549px;;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      transition: 0.3s;
+    }
+    ul li a:hover{
+      color:rgb(49, 49, 189);
+      
+    }
+    button.cta{
+       padding: 8px;
+       background: rgb(26, 4, 4);
+       color: white;
+       border: none;
+       margin-top: 1px;
+       border-radius: 3px;
+    }
+    @media (max-width:450px){
+      .img img {
+        height:50px;
+        width: 350px;
+      }
+       
+    }
+    .container{
+      width: 90%;
+      margin:auto auto;
+      padding: 40px 30px;
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .content{
+      max-width: 450px;
+      line-height: 1.1;
+      padding-top:35px;
+      padding-left: 6%;
+    }
+    .content h4{
+      color: rgb(5, 38, 202);
+      font-size: 1.4rem;
+      font-family: monospace;
+      font-weight: 700;
+    }
+    .content h2{
+      color: black;
+      margin-top: 12px;
+      margin-bottom: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 38px;
+    }
+    .content p{
+      font-size: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+      color: rgb(19, 15, 15);
+    }
+    button{
+      padding: 10px;
+      margin-top: 45px;
+      width: 120px; 
+    }
+    button.buy{
+      background-color: rgb(89, 89, 210);
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+    button.watch{
+      background-color: white;
+      border-radius: 5px;
+      border: 1.5px solid black;
+      margin-left: 10px;
+    }
+     .img img{
+      height: 450px;
+     }
+     /* About container styling*/
+     .about-container{
+      margin: auto auto;
+      padding: 50px 50px;
+    
+    }
+    .about-head{
+      text-align: center;
+      
+      justify-content: center;
+    }
+    .about-head h2{
+     font-family: Arial, Helvetica, sans-serif;
+     letter-spacing: 2px;
+     margin-bottom: 10px;
+     font-size: 24px;
+      
+    }
+    .about-head p{
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+     .cards-container{
+       display: flex;
+       flex-wrap: wrap;
+      gap:1rem;
+      justify-content:flex-start;
+      margin-top:40px;
+      margin-left: 30px;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 1100px;
+       margin-left: auto;
+      margin-right: auto;
+     }
+     .cards{
+      margin: 0;
+      max-width: 200px;
+      width: 200px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      box-sizing: border-box;
+      height: 310px;
+      min-height: 310px;
+     
+     }
+     .cards img{
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+     }
+     .cards h3{
+      font-family: Arial, Helvetica, sans-serif;
+       margin-top: 6px;
+       margin-bottom: 6px;
+       font-size: 16px;
+       font-weight: 750;
+     }
+     .cards p{
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1;
+      margin-bottom: 28px;
+     }
+     .cards a{
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+     }
+     .price-container{
+      margin-top: 20px;
+      padding: 20px;
+      width: 100%;
+       max-width: 1200px;
+       display: flex;
+       flex-direction:row;
+       flex-wrap: wrap;
+      gap:1rem;
+      justify-content: center;
+      border-radius: 15px;
+      margin: 0 auto;
+       
+     }
+     .price{
+    
+      max-width: 500px;
+      width: 100%;
+      height: 500px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align:flex-start;
+
+     }
+     .price-header{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+     }
+     .price-header h2{
+      font-size: 20px;
+     }
+      .fa-star{
+        color: black;
+        padding: 7px;
+        font-size: 20px;
+        background-color: gold;
+        border-radius: 5px;
+      }
+      .price p{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 10px;
+      }
+      .price h2{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+      .price h2 span{
+        font-size: 16px;
+        color: gray;
+        margin-top: 0px;
+      }
+      .price h3{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+      .price-items{
+        list-style: none;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .price-items li{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 17px;
+        font-weight: 590;
+        color: rgb(63, 63, 63);
+        
+      }
+      button.sus{
+        width: 100%;
+        border-radius: 12px;
+        background-color: rgb(89, 89, 210);
+        color: white;
+        font-size: 17px;
+        border: none;
+         margin-bottom: 15px;
+      }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"> zen </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Features</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#"> Contact us</a></li>
+      </ul>
+    </nav>
+    <button class="cta"> Join WaitList</button>
+  </header>
+
+  <div class="container">
+
+     <div class="content">
+    <h4> OtoZen</h4>
+    <h2> Drive Safe,</h2>
+    <h2> Drive Smart</h2>
+   
+      <p> Meet a powerful, all in one assistant that makes driving Safe, connected and productive, while keeping your eyes and hands off your phone</p>
+  
+    <button class="buy"> Buy Now</button>
+    <button class="watch"> watch video</button>
+    </div>
+
+    <div class="img">
+      <img src="order.jpg" alt="Rider-img">
+    </div>
+
+  </div>
+<div class="about-container">
+  <div class="about-head">
+    <h2>Everthing You Neeed For Drive In One Place</h2>
+    <p> Oto zen not only allows for phone free access to your phone functionalities <br> but also provides unique features to supplement a safe driving experience</p>
+  </div>
+
+  <div class="cards-container">
+    <div class="cards">
+      <div class="img">
+        <img src="drive.png" alt="">
+      </div>
+      <h3> Voice Assistants</h3>
+      <p> voice Assistants( siri alexa Gemini)</p>
+      <a href="#">learn More</a>
+    </div>
+
+     <div class="cards">
+      <div class="img">
+        <img src="remind.jpg" alt="">
+      </div>
+      <h3>Live Location & ETA</h3>
+      <p> keep family and friends in the know</p>
+      <a href="#">learn More</a>
+    </div>
+
+     <div class="cards">
+      <div class="img">
+        <img src="sos.jpg" alt="">
+      </div>
+      <h3>SOS</h3>
+      <p>Emergency Help When Every Moment Matters </p>
+      <a href="#">learn More</a>
+    </div>
+
+     <div class="cards">
+      <div class="img">
+        <img src="score.png" alt="">
+      </div>
+      <h3> Drive score</h3>
+      <p> App generate summaries to drive safer</p>
+      <a href="#">learn More</a>
+    </div>
+
+     <div class="cards">
+      <div class="img">
+        <img src="emergency.jpg" alt="">
+      </div>
+      <h3>Distraction free</h3>
+      <p>prevents Distraction and unsafe driving</p>
+      <a href="#">learn More</a>
+    </div>
+
+  </div>
+
+  <div class="pricing-sec">
+    <div class="price-container">
+      <div class="price">
+        <div class="price-header">
+           <i class="fa fa-star"></i>
+          <h2>Standard plan</h2>
+        </div>
+        <p>For complete driver app share  pod </p>
+        <h2>$55.00 <span>/mo</span></h2>
+        <h3>Features</h3>
+        <p>Everthing in standard plan</p>
+        
+        <ul class="price-items">
+          <li><span>✔️</span> Voice Assistants</li>
+          <li><span>✔️</span> Live Location & ETA</li>
+          <li><span>✔️</span> Data privacy controls</li>
+          <li><span>✔️</span> Drive Score</li>
+          <li><span>✔️</span> Distraction Free</li>
+          <li><span>✔️</span> Emergency assist</li>
+        </ul>
+
+        <button class="sus">Suscribe For $55/mo</button>
+      </div>
+       <div class="price">
+        <div class="price-header">
+           <i class="fa fa-star"></i>
+          <h2>Standard plan</h2>
+        </div>
+        <p>For complete driver app share  pod </p>
+        <h2>$55.00 <span>/mo</span></h2>
+        <h3>Features</h3>
+        <p>Everthing in standard plan</p>
+        
+        <ul class="price-items">
+          <li><span>✔️</span> Voice Assistants</li>
+          <li><span>✔️</span> Live Location & ETA</li>
+          <li><span>✔️</span> Data privacy controls</li>
+          <li><span>✔️</span> Drive Score</li>
+          <li><span>❌</span> Distraction Free</li>
+          <li><span>❌</span> Emergency assist</li>
+        </ul>
+
+        <button class="sus">Suscribe For $55/mo</button>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="profile-sec">
+  <div class="profile-container">
+
+    <div class="profile-card-container">
+
+      <div class="profile-card">
+        <img src="w-1.jpeg" alt="woman" id="img" >
+
+        <div class="profile-about">
+          <h2>Pooja Ajora
+             <i class="fa-solid fa-circle-check"></i>
+          </h2>
+          <p>i build user-friendly products focusing on cleear design and great experiences</p>
+
+          <div class="rating">
+            <span> 4.1⭐ rating </span>|
+            <span> 80 projects</span>|
+            <span>$40/hr price</span>
+          </div>
+<button class="p-cta">
+  <i class="fa fa-envelope"></i>
+   Get in Touch</button>
+        </div>
+      </div>
+
+        <div class="profile-card">
+        <img src="w-2.jpeg" alt="woman" id="img" >
+
+        <div class="profile-about">
+          <h2>Pooja Ajora
+             <i class="fa-solid fa-circle-check"></i>
+          </h2>
+          <p>i build user-friendly products focusing on cleear design and great experiences.</p>
+
+          <div class="rating">
+            <span> 4.1⭐ rating </span>|
+            <span> 80 projects</span>|
+            <span>$40/hr price</span>
+          </div>
+<button class="p-cta">
+  <i class="fa fa-envelope"></i>
+   Get in Touch</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+</body>
+</html>
