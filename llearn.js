@@ -83,7 +83,7 @@ playerTwo.marker; // 'O'
 
 // Excercise
 // write a constructor for making Books it shoud have a book title, author, number of pages and if its been read already
-
+/*
 
 function Book ( title, author, pages, read){
   this.title = title;
@@ -119,6 +119,7 @@ player.prototype.sayName = function() {
 
 player1.sayName(); // 'hello im a player'
 player2.sayName(); // 'hello im a player'
+*/
 
 // prototypal inheritance: this is a way to create a new object that inherits properties and methods from an existing object.
 //  This is done by setting the prototype of the new object to the existing object.
@@ -127,3 +128,92 @@ player2.sayName(); // 'hello im a player'
 // which allow them to access functions like sayhello
 
 // deeper into functions by creating a Rock paper scissors game
+
+//Map and filter function
+
+//The filter takes in two parameters : the value,index and the function.
+//eg lets see below
+
+let Arr = [1,3,-8,7,9];
+
+Arr.filter((value) =>{
+  if(value >= 0){
+    return true;
+  }else {
+    return false;
+  }
+})
+//But instead of writing this long value one can write it as 
+
+ console.log(Arr.filter((value) =>{
+  return value >= 0;
+}))
+
+// filter : it filter data based on a condition.
+
+// Map: it also takes in two parameters just like the filter
+//the value and the index
+
+// map creates a new array and the the value to which the function was passeed
+// it transform an array into another array
+//eg
+
+console.log(Arr.map((value)=>{ return value + 10;}))
+
+//shortcuts for arrow functions 
+//since the arrow functions has one parameters the curly brackets can be removed
+// sice its on one line the curly braces and  return do not matter again
+Arr.map( value => value + 3)
+
+//Closure: this happens when( if a function has acces to a value itll always have access to you)
+
+ const multiply = (num1,num2)=> num1 * num2;
+ 
+console.log(multiply(3,5));
+
+//12k
+
+ let nums = [1,3,-4,4]
+let no = 0;
+
+function countPositive(nums){
+  nums.forEach(value => {
+    if(value >  0){
+      no ++
+    }
+  });
+  return no;
+}
+console.log(countPositive(nums))
+
+
+let arrays = [ 2,3,4,5]
+function addNum(arrays, num){
+ return arrays.map( value => value + num)
+}
+console.log(addNum(arrays,45))
+
+//12h
+
+let food = ['apple','eggs','sleeve', 'eggs','pop', 'eggs','red']
+
+/*
+function removeEggs(food){
+  return food.filter(foods => foods !== 'eggs')
+}
+console.log(removeEggs(food))*/
+
+// To remove the first two eggs we put a counter in our 
+
+function removeFirsttwo(food){
+let count = 0;
+  return food.filter(value =>{
+    if( value === 'eggs' && count < 2){
+      count ++;
+      return false;
+    }else{
+      return true
+    }
+  })
+}
+console.log(removeFirsttwo(food))

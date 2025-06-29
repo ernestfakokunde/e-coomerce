@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>First-Land-Page</title>
   <link rel="stylesheet" href="landpage.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+
     *{
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body{
       background-color: rgb(217, 225, 225);
     }
+
+
     header{
        padding: 15px 24px;
        align-items: center;
@@ -49,8 +53,8 @@
     }
     ul li a:hover{
       color:rgb(49, 49, 189);
-      
     }
+
     button.cta{
        padding: 8px;
        background: rgb(26, 4, 4);
@@ -59,12 +63,13 @@
        margin-top: 1px;
        border-radius: 3px;
     }
+
     @media (max-width:450px){
       .img img {
         height:50px;
         width: 350px;
       }
-       
+  
     }
     .container{
       width: 90%;
@@ -111,11 +116,25 @@
       border-radius: 5px;
       color: white;
     }
+    button.buy:hover{
+       background-color: white;
+      border-radius: 5px;
+      border: 1.5px solid black;
+      margin-left: 10px;
+      transition: .5s;
+      color: black;
+    }
     button.watch{
       background-color: white;
       border-radius: 5px;
       border: 1.5px solid black;
       margin-left: 10px;
+      transition: .5s;
+    }
+    button.watch:hover{
+      background-color: rgb(89, 89, 210) ;
+      color: white;
+      border: none;
     }
      .img img{
       height: 450px;
@@ -164,7 +183,7 @@
       border-radius: 8px;
       text-align: center;
       box-sizing: border-box;
-      height: 310px;
+       
       min-height: 310px;
      
      }
@@ -207,7 +226,9 @@
        
      }
      .price{
-    
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
       max-width: 500px;
       width: 100%;
       height: 500px;
@@ -275,6 +296,7 @@
         font-size: 17px;
         border: none;
          margin-bottom: 15px;
+         margin-top: auto;
       }
     
   </style>
@@ -363,28 +385,40 @@
       <p>prevents Distraction and unsafe driving</p>
       <a href="#">learn More</a>
     </div>
+ </div>
 
-  </div>
+  <section class="about-sec">
+    <div class="about-container" style="max-width: 800px; margin: 0 auto; text-align: center; padding: 40px 20px;" >
+       <h2>About OtoZen</h2>
+    <p>
+      <strong>OtoZen</strong> is your all-in-one driving assistant, designed to make every journey safer, smarter, and more connected. Our platform empowers drivers to stay focused on the road while enjoying seamless access to essential features like voice assistants, live location sharing, emergency support, and distraction-free driving.
+    </p>
+    <p>
+      With OtoZen, you can keep your hands on the wheel and your eyes on the road, knowing that you have advanced technology working for your safety and convenience. Whether you’re commuting, traveling with family, or driving for work, OtoZen brings peace of mind and productivity to every trip.
+    </p>
+    <p>OtoZen is a next-generation driving assistant platform designed to revolutionize the way you experience every journey. In today’s fast-paced world, staying connected and safe on the road is more important than ever. OtoZen bridges the gap between technology and safety, offering drivers a seamless, hands-free experience that keeps their focus where it matters most—on the road ahead.</p>
+    </div>
+  </section>
 
   <div class="pricing-sec">
     <div class="price-container">
       <div class="price">
         <div class="price-header">
            <i class="fa fa-star"></i>
-          <h2>Standard plan</h2>
+          <h2>premiuim plan</h2>
         </div>
         <p>For complete driver app share  pod </p>
-        <h2>$55.00 <span>/mo</span></h2>
+        <h2>$95.00 <span>/mo</span></h2>
         <h3>Features</h3>
         <p>Everthing in standard plan</p>
         
         <ul class="price-items">
-          <li><span>✔️</span> Voice Assistants</li>
           <li><span>✔️</span> Live Location & ETA</li>
           <li><span>✔️</span> Data privacy controls</li>
           <li><span>✔️</span> Drive Score</li>
           <li><span>✔️</span> Distraction Free</li>
           <li><span>✔️</span> Emergency assist</li>
+          <li><span>✔️</span> Voice Assistants</li>
         </ul>
 
         <button class="sus">Suscribe For $55/mo</button>
@@ -392,7 +426,7 @@
        <div class="price">
         <div class="price-header">
            <i class="fa fa-star"></i>
-          <h2>Standard plan</h2>
+          <h2>standard plan</h2>
         </div>
         <p>For complete driver app share  pod </p>
         <h2>$55.00 <span>/mo</span></h2>
@@ -403,7 +437,7 @@
           <li><span>✔️</span> Voice Assistants</li>
           <li><span>✔️</span> Live Location & ETA</li>
           <li><span>✔️</span> Data privacy controls</li>
-          <li><span>✔️</span> Drive Score</li>
+          <li><span>❌</span> Drive Score</li>
           <li><span>❌</span> Distraction Free</li>
           <li><span>❌</span> Emergency assist</li>
         </ul>
@@ -413,7 +447,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="main">
   <h1> OtoZen makes Every Drive </h1>
